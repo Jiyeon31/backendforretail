@@ -7,8 +7,40 @@ class ProductTag extends Model {}
 ProductTag.init(
   {
     // define columns
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    product_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'product',
+        key: 'id',
+      }
+    },
+    tag_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'tag',
+        key: 'id',
+      }
+    },
   },
   {
+    hooks: {
+      // set up beforeCreate lifecycle "hook" functionality
+      async beforeCreate(newTagData) {
+        newTagData.tag_id = await bcrypt.hash(newTagData.tag_id, 10);
+        return newTagData;
+      },
+
+      async beforeUpdate(updatedTagData) {
+        updatedTagData.tag_id = await bcrypt.hash(updatedTagData.tag_id, 10);
+        return updatedTagData;
+      }
+  },
     sequelize,
     timestamps: false,
     freezeTableName: true,
