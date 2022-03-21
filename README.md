@@ -23,6 +23,17 @@
   for managing e-commerce website
   
   ## WalkthroughVideo
+  1.Connection with mysql and commands
+  https://github.com/Jiyeon31/backendforretail/blob/main/walkthrough-videos/connecting-mysql-enter-schema-and-seed-commands.mp4
+  
+  2.Invoke app and get routes
+  https://github.com/Jiyeon31/backendforretail/blob/main/walkthrough-videos/GETroutes.mp4
+  
+  3.POST
+  https://github.com/Jiyeon31/backendforretail/blob/main/walkthrough-videos/POST.mp4
+  
+  4.DELETE
+  https://github.com/Jiyeon31/backendforretail/blob/main/walkthrough-videos/DELETE.mp4
   
     
   ## License
