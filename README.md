@@ -8,6 +8,7 @@
   ## Table of Contents
   * [Installation](#installation)
   * [Usage](#usage)
+  * [WalkthroughVideo](#walkthroughvideo)
   * [License](#license)
   * [Contributing](#contributing)
   * [Tests](#tests)
@@ -20,6 +21,9 @@
   ## Usage 
   
   for managing e-commerce website
+  
+  ## WalkthroughVideo
+  
     
   ## License
     
