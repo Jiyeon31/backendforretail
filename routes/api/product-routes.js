@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
   // find all products
   // be sure to include its associated Category and Tag data
   Product.findAll({
+    attributes: ['id', 'product_name', 'price', 'stock'],
     include: [
       {
         model: Category,
@@ -66,7 +67,7 @@ router.post('/', (req, res) => {
     price: req.body.price,
     stock: req.body.stock,
     category_id: req.body.category_id,
-    tagIds: req.body.tagIds
+    tag_id: req.body.tag_id
     })
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
@@ -92,7 +93,11 @@ router.post('/', (req, res) => {
 // update product
 router.put('/:id', (req, res) => {
   // update product data
-  Product.update(req.body, {
+  Product.update(
+    {
+    product_name: req.body.product_name
+    }, 
+    {
     where: {
       id: req.params.id,
     },
@@ -133,7 +138,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
-  Post.destroy({
+  Product.destroy({
     where: {
       id: req.params.id
     }
