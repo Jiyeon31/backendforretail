@@ -29,18 +29,6 @@ ProductTag.init(
     },
   },
   {
-    hooks: {
-      // set up beforeCreate lifecycle "hook" functionality
-      async beforeCreate(newTagData) {
-        newTagData.tag_id = await bcrypt.hash(newTagData.tag_id, 10);
-        return newTagData;
-      },
-
-      async beforeUpdate(updatedTagData) {
-        updatedTagData.tag_id = await bcrypt.hash(updatedTagData.tag_id, 10);
-        return updatedTagData;
-      }
-  },
     sequelize,
     timestamps: false,
     freezeTableName: true,
